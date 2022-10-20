@@ -79,3 +79,43 @@
            
                                 //Задача 38:
         
+        double[] arr = new double[5] {1.3, 2.4, 3.8, 5.9, 4.1};
+        double num_max = arr[0];
+        double num_min = arr[0];
+
+        double MetMax(double[] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                if (arr[i] > num_max)
+                {
+                    num_max = arr[i];
+                }
+            }
+            return num_max;
+        }
+
+        double MetMin(double[] arr)
+        {
+            for (int i = 0; i < arr.GetLength(0); i++)
+            {
+                if (arr[i] < num_min)
+                {
+                  num_min =arr[i];
+                }
+            }
+            return num_min;
+        }
+        
+        double x = MetMax(arr);
+        double y = MetMin(arr);
+
+        double Difference(double x, double y)
+        {
+            double result = x-y;
+            return result;
+        }
+
+        Console.WriteLine("разницf между максимальным и минимальным элементов массива = " + Difference(x,y));
+
+

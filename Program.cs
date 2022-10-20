@@ -13,8 +13,8 @@
 [3 7 22 2 78] -> 76 */
 
 
-//Задача 34:
-/*         int count = 0;
+                                        //Задача 34:
+    /*  int count = 0;
         
         int Met(int[] array)
         {
@@ -43,4 +43,39 @@
             Met(Met2());
             Console.WriteLine("количество чётных чисел в массиве = " + count); */
 
-Задача 36: 
+
+                                            //Задача 36: 
+    /* int sum = 0;
+        
+        int Met(int[] array)
+        {
+            for  (int i = 0; i< array.GetLength(0); i++)
+            {
+                
+                if (i % 2 == 0)
+                {
+                    sum= sum + array[i];
+                }
+            }
+        return sum;
+        
+        }
+        
+        int[] Met2()
+        {
+            int[] array = new int [4];
+            Random rand = new Random();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = rand.Next(100,999);
+            }
+            return  array;
+        }
+        
+            
+            Met(Met2());
+            Console.WriteLine("sum=" + sum);// первый и третий элемент массива {1й,2,3й,4}
+             */
+           
+                                //Задача 38:
+        

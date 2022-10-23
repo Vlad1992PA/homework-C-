@@ -11,7 +11,7 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 //          Задача 41:
 
-        string num = String.Empty;
+/*         string num = String.Empty;
         int count = 0;
 
         int MetIntNum (string num1)
@@ -59,3 +59,30 @@ b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
       MetStrNum(nums);
       Console.WriteLine("num = : " + count);
+ */
+
+//          Задача 43:
+
+            Console.WriteLine("Ведите точку k1: ");
+            int k1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ведите точку k2: ");
+            int k2 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ведите точку b1: ");
+            int b1 = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Ведите точку b2: ");
+            int b2 = Convert.ToInt32(Console.ReadLine());
+
+
+        double  GetPointX(int k1, int k2, int b1, int b2)
+        {
+            double  x=(b2-b1)/(k1-k2);
+            return x;
+        }
+
+        double  GetPointY(int k1, int k2, int b1, int b2)
+        {
+            double  y= k1*(b2-b1)/(k1-k2)+b1;
+            return y;
+        }
+
+        Console.WriteLine("Точка пересечения двух прямых: " + GetPointX(k1, k2, b1, b2) + ", "+ GetPointY(k1, k2, b1,  b2));

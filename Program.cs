@@ -72,17 +72,17 @@ for (int j = 0; j < array.GetLength(1); j++)
     for (int i = 0; i < array.GetLength(0); i++)
     {
         summ += array[i, j];
-        
+
     }
-    
+
     /*  Console.WriteLine(Convert.ToDouble(summ) / Convert.ToDouble(array.GetLength(0))); 
     //показывает полное число: 4,666666666666667 */
 
-   /*  double num = Convert.ToDouble(summ)/Convert.ToDouble(array.GetLength(0)); 
-    System.Console.Write(System.Math.Round(num, 2) + "  "); // округляет до:4,67  5,67  3,67  3  */
-    
-    string num = Convert.ToString(Convert.ToDouble((summ) / Convert.ToDouble(array.GetLength(0)))); 
-    if (num.Length >4){Console.Write(num[..4] + "  "); }
-    else {Console.Write(num + "  ");}
-    
+    /*  double num = Convert.ToDouble(summ)/Convert.ToDouble(array.GetLength(0)); 
+     System.Console.Write(System.Math.Round(num, 2) + "  "); // округляет до:4,67  5,67  3,67  3  */
+
+    string num = Convert.ToString(Convert.ToDouble((summ) / Convert.ToDouble(array.GetLength(0))));
+    if (num.Length > 4) { Console.Write(num[..4] + "  "); }
+    else { Console.Write(num + "  "); }
+
 }

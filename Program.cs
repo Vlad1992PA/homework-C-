@@ -1,88 +1,165 @@
-﻿/*                                lesson№7
+﻿//                               lesson№8
 
-/* Урок 7. Как не нужно писать код. 
-Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
-m = 3, n = 4.
-0,5 7 -2 -0,2
-1 -3,3 8 -9,9
-8 7,8 -7,1 9
-
-Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
-и возвращает значение этого элемента или же указание, что такого элемента нет.
+/* Урок 8. Как не нужно писать код. Часть 2
+Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
 Например, задан массив:
 1 4 7 2
 5 9 2 3
 8 4 2 4
-17 -> такого числа в массиве нет
+В итоге получается вот такой массив:
+7 4 2 1
+9 5 3 2
+8 4 4 2*/
 
-Задача 52. Задайте двумерный массив из целых чисел. 
-Найдите среднее арифметическое элементов в каждом столбце.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3. */
-
-//                              Задача 47
 /* 
-int[,] array = new int[3, 4] { { 1, 4, 7, 2},
-        { 5, 9, 2, 3}, { 8, 4, 2, 4} };
+  int[,] array = { { 1, 4, 7, 2 }, { 5, 9, 2, 3 }, { 8, 4, 4, 2 } };
+      
+      for (int i = 0; i < array.GetLength(1); i++)
+      {
+        
+        for (int j = 0; j <= array.GetLength(0); j++)
+        {
+          int num = 0;// переменная для перезаписи числа
+          int count = j;// счётчик для цикла сравнения и пере
+          while (count<= array.GetLength(0))
+          {
+            if (array[i, j] < array[i, count])
+            {
+              num = array[i, j];
+              array[i, j] = array[i, count];
+              array[i, count] = num;      
+            }
+            count++;
+          }
 
-for (int j = 0; j < array.GetLength(1); j++)
-{
-    int summ = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
+          if (j < array.GetLength(0)){Console.Write(array[i, j]+ ","); }
+          else if (j == array.GetLength(0)){Console.Write(array[i, j]); }
+           
+        }
+         Console.WriteLine( );
+
+      } */
+
+/* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет 
+находить строку с наименьшей суммой элементов.
+
+Например, задан массив:
+1 4 7 2
+5 9 2 3
+8 4 2 4
+5 2 6 7
+Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+ */
+    /*   
+      int[,] array = { { 1, 4, 7, 2 }, { 5, 9, 2, 3 }, { 8, 4, 2, 4 }, { 5, 2, 6, 7 } };
+      int[] sum = new int[4]; // задаем масив с колличеством сумм элементов массива
+      int count = 0;// счётчик элементов
+      
+      for (int i = 0; i < array.GetLength(1); i++)
+      {        
+        sum[count] = 0; // обнуляем для старта новой суммы строк
+        
+        for (int j = 0; j < array.GetLength(0); j++)
+        {
+          sum[count] = sum[count] + array[i, j];
+        }
+        count++;
+      }
+      
+      int comparison_sum = sum[0];// создаемзначения сравнения и приравниваем его к первому элементу массива
+      int strin = 1; // условно делаем первую строку минимальной
+      
+      for (int i = 0; i < sum.GetLength(0); i++) {
+        if (comparison_sum  >  sum[i]) {strin = i+1; comparison_sum = sum[i];}
+      }
+      Console.WriteLine(" Строка с наименьшей суммой элементов №:"+ strin);
+ */
+
+
+/* Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18 */
+            
+/*             int[,] matrix_one = { { 2, 4 }, { 3, 2 } };
+            int[,] matrix_two = { { 3, 4 }, { 3, 3 } };
+            int[,] matrix_sum =  new int[2, 2];
+
+            for (int i = 0; i < matrix_one.GetLength(1); i++)
+            {
+                for (int j = 0; j < matrix_one.GetLength(0); j++)
+                {
+                    if (i == 0 & j == 0){
+                    matrix_sum[i, j] = matrix_one[0, 0] * matrix_two[0, 0] + matrix_one[0, 1] * matrix_two[1, 0];
+                    Console.Write(matrix_sum[i, j]+ " ");
+                    }
+                    if (i == 0 & j == 1){
+                    matrix_sum[i, j] = matrix_one[0, 0] * matrix_two[0, 1] + matrix_one[0, 1] * matrix_two[1, 1];
+                    Console.Write(matrix_sum[i, j]+ " ");
+                    }
+                    if (i == 1 & j == 0){
+                    matrix_sum[i, j] = matrix_one[1, 0] * matrix_two[0, 0] + matrix_one[1, 1] * matrix_two[1, 0];
+                    Console.Write(matrix_sum[i, j]+ " ");
+                    }
+                    if (i == 1 & j == 0){
+                    matrix_sum[i, j] = matrix_one[1, 0] * matrix_two[0, 1] + matrix_one[1, 1] * matrix_two[1, 1];
+                    Console.Write(matrix_sum[i, j]+ " ");
+                    } 
+                }
+                Console.WriteLine();
+
+            } */
+
+
+/* Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+Массив размером 2 x 2 x 2
+66(0,0,0) 25(0,1,0)
+34(1,0,0) 41(1,1,0)
+27(0,0,1) 90(0,1,1)
+26(1,0,1) 55(1,1,1) */
+
+/*     Random random = new Random();
+    int[,,] array = 
+    for (int x = 0; x < 2; x++)
     {
-        summ += array[i, j];
-        //Console.Write($"{summ} ");
-    }
-    Console.WriteLine();
-    Console.WriteLine(Convert.ToDouble(summ) / Convert.ToDouble(array.GetLength(0)));
-} */
+        for (int y = 0; y < 2; y++)
+        {
+            for (int z = 0; z < 2; z++)
+            {
+                array[x, y, z] = random.Next(10, 99);
+                Console.Write($"{array[x, y, z]} ({x}, {y}, {z})  ");
+            }
+            Console.WriteLine();
+        }
+    } */
 
-//                              Задача 50
 
-/* Console.WriteLine("Введите позицию элемента встроке: ");
-int i = Convert.ToInt32(Console.ReadLine());
-Console.WriteLine("Введите позицию элемента столбце: ");
-int j = Convert.ToInt32(Console.ReadLine());
+/* Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
+Например, на выходе получается вот такой массив:
+01 02 03 04
+12 13 14 05
+11 16 15 06
+10 09 08 07
+ */
 
-int[,] array = new int[3, 4] { { 1, 4, 7, 2},
-        { 5, 9, 2, 3}, { 8, 4, 2, 4} };
+  int[,] array = new int[4, 4];
+ 
+ int i =0;
+ int sum =00;
 
-if (i - 1 <= array.GetLength(0)) // -1 добавляется 
-{
-    if (j - 1 <= array.GetLength(1)) //
-    {
-        Console.WriteLine("Значение = " + array[i - 1, j - 1]);
-    }
-    else { Console.WriteLine($"Позиции элемента {j} в столбце нет!"); }
-}
-else { Console.WriteLine($"Позиции элемента {i} в строке нет!"); }
-     */
+ 
+ for (int j = 0; j < array.GetLength(1); j++) {
+    sum ++; 
+    array[i,j]= sum;
+    Console.Write(array[i,j]+ " ");
+ }
 
-//                              Задача 52
+ int j =3;
+ for (int i = 1; i < array.GetLength(1); i++) {
 
-int[,] array = new int[3, 4] { { 1, 4, 7, 2},
-        { 5, 9, 2, 3}, { 8, 4, 2, 4} };
 
-for (int j = 0; j < array.GetLength(1); j++)
-{
-    int summ = 0;
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        summ += array[i, j];
 
-    }
-
-    /*  Console.WriteLine(Convert.ToDouble(summ) / Convert.ToDouble(array.GetLength(0))); 
-    //показывает полное число: 4,666666666666667 */
-
-    /*  double num = Convert.ToDouble(summ)/Convert.ToDouble(array.GetLength(0)); 
-     System.Console.Write(System.Math.Round(num, 2) + "  "); // округляет до:4,67  5,67  3,67  3  */
-
-    string num = Convert.ToString(Convert.ToDouble((summ) / Convert.ToDouble(array.GetLength(0))));
-    if (num.Length > 4) { Console.Write(num[..4] + "  "); }
-    else { Console.Write(num + "  "); }
-
-}

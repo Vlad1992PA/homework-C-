@@ -5,25 +5,47 @@
 N = 5 -> "5, 4, 3, 2, 1"
 N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"*/
 
-
+/* 
 //int n = 5;
-      int n =8;
-      int divider = 1;
-      
-      void Met1(int n)
-      {
-        Console.Write((n / divider) + ", ");           
-        n--;
-        if (n >0)  {Met1(n);} 
-      //return n;
-      } 
-      Met1(n);
+int n = 8;
+int divider = 1;
+
+void Met1(int n)
+{
+    Console.Write((n / divider) + ", ");
+    n--;
+    if (n > 0) { Met1(n); }
+    //return n;
+}
+Met1(n);
+ */
+
 
 /* Задача 66: Задайте значения M и N. Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
 
 M = 1; N = 15 -> 120
 M = 4; N = 8. -> 30 */
 
+/* 
+//int min = 4;
+// int max =8;
+int min = 1;
+int max = 15;
+int sum = 0;
+
+void Met1(int min, int max, int sum)
+{
+    if (min <= max)
+    {
+        sum = sum + min;
+        min++;
+        Met1(min, max, sum);
+    }
+    else { Console.WriteLine("Сумма= " + sum); }
+
+}
+Met1(min, max, sum);
+ */
 
 
 /* Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.

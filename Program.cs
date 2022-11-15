@@ -146,20 +146,60 @@
 10 09 08 07
  */
 
-  int[,] array = new int[4, 4];
- 
- int i =0;
- int sum =00;
+ int[,] array = new int[7, 7];
+      //int[,] array = new int[5, 5];
+      //int[,] array = new int[4, 4];
+      int d_i = array.GetLength(1);
+      int d_j = array.GetLength(0);      
+      int i = 0;
+      int j = 0;
+      int start = 0;
+      int finish = 0;
+      int count = 10; // что бы не заморачиваться с 01 и выглядело ровно, а так должно равно 0
+      
+      int how_many_actions = d_i*d_j+count;
+      Console.WriteLine("Спиральное заполнение КВАДРАТНОГО массива " + array.GetLength(1)+ "x" + array.GetLength(1) + ":");
+      
+      while (count < how_many_actions)      { 
+        if (i==start & j < d_j)    {
+          for (j = finish; j < d_j; j++)   {
+            count++;            array[i,j]= count; 
+          }          
+          j--;          d_j--;          start++;
+        }
+        
+        else if (j == d_j & i < d_i)    {
+          d_i--;
+          for (i = start; i <= d_i; i++)   {
+            count++;            array[i,j]= count; 
+          }
+          i--;
+        }        
 
- 
- for (int j = 0; j < array.GetLength(1); j++) {
-    sum ++; 
-    array[i,j]= sum;
-    Console.Write(array[i,j]+ " ");
- }
+        else if (i == d_i & j == d_j)    {
+          d_j--;
+          for (j = d_j; j >= finish; j--)   {
+            count++;            array[i,j]= count;
+          }
+          j++;          d_j++;
+        }        
+        
+        else if (i == d_i & j < d_j)    {
+          d_i--;
+          for (i = d_i; i >= start; i--)   {
+            count++;            array[i,j]= count; 
+          }
+          i++;          d_i++;          finish++;
+        }
+      }
+      
+       for (int x = 0; x < array.GetLength(1); x++)  {
+          for (int y = 0; y < array.GetLength(0); y++)
+          {
+            Console.Write(array[x, y]+ " ");
+          }
 
- int j =3;
- for (int i = 1; i < array.GetLength(1); i++) {
-
+          Console.WriteLine();
+       }
 
 

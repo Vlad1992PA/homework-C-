@@ -14,8 +14,8 @@ void Met1(int n)
 {
     Console.Write((n / divider) + ", ");
     n--;
-    if (n > 0) { Met1(n); }
-    //return n;
+    if (n > 1) { Met1(n); }
+    else if (n > 0) { Console.Write((n / divider)); }
 }
 Met1(n);
  */
@@ -28,7 +28,7 @@ M = 4; N = 8. -> 30 */
 
 /* 
 //int min = 4;
-// int max =8;
+//int max = 8;
 int min = 1;
 int max = 15;
 int sum = 0;
@@ -42,12 +42,26 @@ void Met1(int min, int max, int sum)
         Met1(min, max, sum);
     }
     else { Console.WriteLine("Сумма= " + sum); }
-
 }
+
 Met1(min, max, sum);
  */
 
 
 /* Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. Даны два неотрицательных числа m и n.
 m = 2, n = 3 -> A(m,n) = 9
-m = 3, n = 2 -> A(m,n) = 29 */ 
+m = 3, n = 2 -> A(m,n) = 29 */
+
+/* 
+//int m = 2;
+//int n = 3;
+int m = 3;
+int n = 2;
+int Akk(int m, int n)
+{
+  if (m == 0) {return n + 1;}
+  else if (n == 0) {return Akk(m - 1, 1);}
+  else {return Akk(m - 1, Akk(m, n - 1));}
+}
+Console.WriteLine(Akk (m, n));
+*/
